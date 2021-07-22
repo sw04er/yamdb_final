@@ -27,8 +27,7 @@ jobs:
         cd api/
         flake8
         # запустить написанные разработчиком тесты
-        cd ../
-        python manage.py test
+        
     - name: Pytest
       run: |
         cd ./
