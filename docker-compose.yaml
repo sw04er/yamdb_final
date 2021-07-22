@@ -9,7 +9,6 @@ services:
       - ./.env
   web:
     image: sw04er/web:latest
-    build: .
     restart: always
     volumes:
       - static_value:/code/static/
