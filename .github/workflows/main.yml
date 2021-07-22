@@ -24,10 +24,9 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         # запус<логин-на-docker-hub>ти в папку, содержащую manage.py - <корневая_папка>/<папка_проекта>/manage.py
-        cd api/
-        flake8
+        flake8 api
         # запустить написанные разработчиком тесты
-        
+        python manage.py test
     - name: Pytest
       run: |
         cd ./
