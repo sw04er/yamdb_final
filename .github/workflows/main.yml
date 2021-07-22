@@ -66,26 +66,13 @@ jobs:
           #остановка всех контейнеров
           sudo docker-compose stop
           sudo docker-compose rm web
-          sudo docker-compose up -d
-  
-  create_env:
-    name: Create .env file
-    runs-on: ubuntu-latest
-    needs: build_and_push_to_docker_hub
-    steps:
-    - name: create .env with data
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
-        script: |
-          touch .env
+          touch .env 
+          # Наполнит файл переменными окружения из секретов GitHub
           echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
           echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+          sudo docker-compose up -d
 
   send_message:
     runs-on: ubuntu-latest
