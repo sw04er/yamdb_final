@@ -59,9 +59,10 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
+        stack_file_name: docker-compose.yaml
         script: |                                                        
           # Выполняет pull образа с DockerHub
-          sudo docker pull sw04er/web:latest
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/web:latest
           #остановка всех контейнеров
           sudo docker-compose stop
           sudo docker-compose rm web
