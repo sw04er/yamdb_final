@@ -20,7 +20,8 @@ jobs:
         pip install -r requirements.txt 
     - name: Test with flake8 and django tests
       run: |
-        flake8 . --exclude=snap
+        cd api/
+        flake8 .
     - name: Pytest
       run: |
         pytest
