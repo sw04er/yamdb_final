@@ -20,10 +20,10 @@ jobs:
         pip install -r requirements.txt 
     - name: Test with flake8 and django tests
       run: |
-        cd api/
-        flake8 .
+        python -m flake8
     - name: Pytest
       run: |
+        cd ./
         pytest
 
   build_and_push_to_docker_hub:
