@@ -17,3 +17,8 @@ docker-compose run web python manage.py createsuperuser
 ```bash
 docker-compose run web python manage.py loaddata fixtures.json
 ```
+
+### Ссылка на сайт:
+```
+http://161.35.67.170
+```
